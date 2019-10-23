@@ -13,21 +13,23 @@ const ChildcareImageDetail = props => {
 
 const styles = StyleSheet.create({
   imageStyle: {
-    width: 125,
-    height: 125
+    height: 100,
+    width: 100,
+    padding: 0,
+    overflow: "visible"
   },
 
   textStyle: {
     fontSize: 20,
-    marginLeft: 150,
-    bottom: 125
+    marginLeft: 110,
+    bottom: 100
   },
 
   box: {
     borderStyle: "solid",
     borderWidth: 1,
+    height: 102,
     padding: 0,
-    borderTopWidth: 0
   }
 });
 

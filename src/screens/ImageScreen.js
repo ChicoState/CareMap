@@ -5,7 +5,7 @@ import ChildcareImageDetail from "../components/ChildcareImageDetail";
 const ImageScreen = () => {
   return (
     <View>
-      <ChildcareImageDetail
+      <ChildcareImageDetail style={styles.container}
         title="Chico Childcare"
         imageSource={require("../../assets/reading-book.jpeg")}
       />
@@ -25,6 +25,10 @@ const ImageScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+container: {
+  paddingTop: 0,
+}
+});
 
 export default ImageScreen;
