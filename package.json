@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "axios": "^0.19.0",
     "bootstrap": "^3.4.1",
     "expo": "^33.0.0",
     "react": "16.8.3",
@@ -15,7 +16,8 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-33.0.0.tar.gz",
     "react-native-elements": "^1.2.6",
     "react-native-web": "^0.11.4",
-    "react-navigation": "^3.11.0"
+    "react-navigation": "^3.11.0",
+    "touches": "^1.2.2"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.1.1"

@@ -21,6 +21,11 @@ const HomeScreen = props => {
             <Text style={styles.buttonText}>Go To Childcare image details</Text>
           </View>
         </TouchableOpacity>
+        <TouchableOpacity onPress={() => props.navigation.navigate("Search")}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>Go To Search</Text>
+          </View>
+        </TouchableOpacity>
     </View>
   );
 };
