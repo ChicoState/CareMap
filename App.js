@@ -4,6 +4,7 @@ import ComponentsScreen from './src/screens/ComponentsScreen';
 import ListScreen from './src/screens/ListScreen';
 import ImageScreen from './src/screens/ImageScreen';
 import SearchScreen from './src/screens/SearchScreen';
+import {YellowBox} from 'react-native';
 
 const navigator = createStackNavigator(
   {
@@ -14,9 +15,9 @@ const navigator = createStackNavigator(
     Search: SearchScreen
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Search',
     defaultNavigationOptions: {
-      title: 'App'
+      title: 'CareMap'
     }
   }
 );

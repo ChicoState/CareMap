@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const ChildcareImageDetail = props => {
   console.log(props);
@@ -8,6 +9,7 @@ const ChildcareImageDetail = props => {
       <Image style={styles.imageStyle} source={props.imageSource} />
       <Text style={styles.textStyle}>{props.title}</Text>
     </View>
+
   );
 };
 
