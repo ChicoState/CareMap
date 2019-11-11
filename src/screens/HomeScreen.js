@@ -14,7 +14,7 @@ const HomeScreen = props => {
       <TouchableOpacity onPress={() => props.navigation.navigate("List")}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>Go To List</Text>
-          </View>
+          </View>     
       </TouchableOpacity>
       <TouchableOpacity onPress={() => props.navigation.navigate("Image")}>
           <View style={styles.button}>

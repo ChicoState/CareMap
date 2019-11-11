@@ -16,14 +16,13 @@ export default () => {
                 // any key value pairs will be automatically appended 
                 // to onto our request URL
                 params: {
-                    limit: 40, 
+                    limit: 50, 
                     term: searchTerm,
-                    location: 'Sacramento, CA', 
-                    categories: 'childcare'
+                    location: 'Sacramento, CA'
                 }
             });
             //'await' waits for the GET to return, then loads
-            // results into the 'response' variable
+            // results  into the 'response' variable
 
             //the Response Body JSON documented format :
             //https://www.yelp.com/developers/documentation/v3/business_search
@@ -37,7 +36,7 @@ export default () => {
     };
 
     useEffect(() => {
-        searchAPI('child care');
+        searchAPI('childcare');
     }, [] );
 
     return [searchAPI, results, errorMessage]
