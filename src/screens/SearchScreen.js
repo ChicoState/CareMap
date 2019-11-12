@@ -38,7 +38,7 @@ const SearchScreen = () => {
 
 SearchScreen.navigationOptions = ({navigation}) => {
     return {
-        headerRight: <TouchableOpacity onPress={() => navigation.navigate('Image') }>
+        headerRight: <TouchableOpacity onPress={() => navigation.navigate('Components') }>
             <FontAwesome name = "child" size={30}/>
             </TouchableOpacity>
     };
