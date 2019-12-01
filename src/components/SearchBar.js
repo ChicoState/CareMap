@@ -22,11 +22,12 @@ const SearchBar = ({ term, onTermChange, onTermSubmit}) => {
 
 const styles = StyleSheet.create({
     background: {
-        marginTop: 10,
+        marginTop: 12,
+        marginBottom: 0,
         backgroundColor: '#F5F5F5', 
         height: 50,
         borderRadius: 5, 
-        marginHorizontal: 15, 
+        marginHorizontal: 10, 
         // lines up the icon and text in a row
         flexDirection: 'row'
     },
