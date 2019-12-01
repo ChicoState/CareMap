@@ -7,6 +7,7 @@ const ResultsList = ({ title, results }) => {
     return (
         
         <View style={styles.container}>
+        
             <Text style={styles.title}>{title}</Text>
             <FlatList                 
                 data={results}
@@ -30,10 +31,9 @@ const styles = StyleSheet.create({
     subText: {
         marginLeft: 12
     },
-
     container: {
         marginBottom: 101, 
-        backgroundColor: '#CFF2F6'
+        backgroundColor: '#000000'
     }, 
 
     back:{
