@@ -22,7 +22,8 @@
     "touches": "^1.2.2"
   },
   "devDependencies": {
-    "babel-preset-expo": "^5.1.1"
+    "babel-preset-expo": "^5.1.1",
+    "jest-expo": "^35.0.0"
   },
   "private": true
 }
