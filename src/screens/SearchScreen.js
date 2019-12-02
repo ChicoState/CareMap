@@ -1,27 +1,25 @@
 import React, { useState } from 'react';
-import { Text,  StyleSheet, View, Image, ImageBackground} from 'react-native';
+import { Text,  StyleSheet, View, ImageBackground} from 'react-native';
 import SearchBar from '../components/SearchBar'
 import useResults from '../hooks/useResults';
 import ResultsList from '../components/ResultsList';
 import {YellowBox} from 'react-native';
 import { Feather, FontAwesome } from '@expo/vector-icons';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 
-const SearchScreen = () => {
+const SearchScreen = ({ }) => {
     // 'term' is the what we will search the Yelp API with
     const [term, setTerm] = useState(''); 
     const  [searchAPI, results, errorMessage] = useResults();
 
     const filterResultsByterm = (term) => {
         return results.filter(result => {
-            return result.term === term;
+            return result.categories.alias === term;
         });
     };
     YellowBox.ignoreWarnings(['Warning: ...']);
     console.disableYellowBox = true;
-    return (
-        //We have found {results.length} results 
-        
+    return ( 
         <View style = {styles.container}>   
             <SearchBar 
             term ={term}
@@ -29,9 +27,12 @@ const SearchScreen = () => {
             onTermSubmit={() => searchAPI(term)}
             />
             {errorMessage ? <Text>{errorMessage}</Text> : null}
+            <ScrollView>
             <ResultsList 
-                results ={filterResultsByterm()}   
+                results ={filterResultsByterm()}
+                  
             /> 
+            </ScrollView>
         </View>
     );
 }
@@ -46,8 +47,16 @@ SearchScreen.navigationOptions = ({navigation}) => {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#F0F2BE'
-    }
+        backgroundColor: '#000000'
+    }, 
+    bgImag: {
+        flex: 1,
+        width: '100%',
+        height: '100%',
+        justifyContent: "center",
+        alignItems: "center",
+        opacity: 0.8,
+      },
 }); 
 
 // Jozzell Geo Location Function :: =>

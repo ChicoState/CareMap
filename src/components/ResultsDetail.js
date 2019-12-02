@@ -6,7 +6,8 @@ const ResultsDetail = ({ result }) => {
     <View style={styles.container}>
         <ImageBackground style = {styles.bgImag} source = {require("../../assets/dotz.jpg")}> 
         <Text style={styles.name}>{result.name}</Text>
-        <Text>{result.rating} Stars, {result.review_count} Reviews</Text>
+        <Text>{result.rating} Stars, {result.review_count} Reviews{"\n"}    
+        </Text>
         <Image style={styles.image} source={{ uri: result.image_url}} />
         </ImageBackground> 
     </View>
@@ -31,8 +32,10 @@ const styles = StyleSheet.create({
         borderRadius: 4
     },
     name: {
+        flex: 1,
         fontWeight: 'bold',
-        fontSize: 18
+        fontSize: 18, 
+        marginTop: 15,
     }
 });
 
