@@ -18,7 +18,7 @@ export default () => {
                 params: {
                     limit: 50, 
                     term: searchTerm,
-                    location: 'Sacramento, CA'
+                    location: 'Chico, CA'
                 }
             });
             //'await' waits for the GET to return, then loads

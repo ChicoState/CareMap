@@ -22,18 +22,20 @@ const styles = StyleSheet.create({
   },
 
   textStyle: {
+    textAlign: 'center',
     fontSize: 20,
-    marginLeft: 110,
+    marginLeft: 10,
     bottom: 100, 
     fontWeight: 'bold'
   },
 
   box: {
+    flex: 1,
     borderStyle: "solid",
     borderWidth: 1,
     height: 102,
     padding: 0,
-    backgroundColor: '#F0F2BE'
+    borderColor: '#d6d7da'
   }
 });
 
