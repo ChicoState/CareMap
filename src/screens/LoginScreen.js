@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Animated, {Easing} from 'react-native-reanimated';
-import { StyleSheet, Text, View, Image, Dimensions, TextInput } from "react-native";
+import {StyleSheet, Text, View, Image, Dimensions, TextInput, TouchableOpacity} from "react-native";
 import {TapGestureHandler, State} from "react-native-gesture-handler";
 
 const {width, height} = Dimensions.get('window');
@@ -62,7 +62,7 @@ class LoginScreen extends Component {
             }
         ]);
 
-        this.onCloseState =event([
+        this.onCloseState = event([
             {
                 nativeEvent: ({state}) => block([
                     cond(eq(state, State.END),set(this.buttonOpacity, runTiming(new Clock(), 0,1)))
@@ -148,13 +148,13 @@ class LoginScreen extends Component {
                                    style={styles.textInput}
                                    placeholderTextColor='black'
                         />
-                        <TapGestureHandler onPress={() => props.navigation.navigate("Search")}>
+                        <TouchableOpacity onPress={console.log("Help")}>
                         <Animated.View style={styles.button}>
                             <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
                                 SIGN IN
                             </Text>
                         </Animated.View>
-                        </TapGestureHandler>
+                        </TouchableOpacity>
                     </Animated.View>
                 </View>
             </View>
@@ -204,5 +204,5 @@ const styles = StyleSheet.create({
         marginVertical: 5,
         paddingLeft: 10,
         borderColor: 'rgba(0,0,0,0.2)'
-    }
+    },
 });
