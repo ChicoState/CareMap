@@ -24,7 +24,7 @@ export default class App extends React.Component {
     }
 
     async _loadAssetsAsync() {
-        const imageAssets = cacheImages([require('../../assets/crayon.jpeg')]);
+        const imageAssets = cacheImages([require('../../assets/kids-drawing.jpeg')]);
         await Promise.all([...imageAssets]);
     }
 

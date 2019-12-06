@@ -70,6 +70,12 @@ class LoginScreen extends Component {
             }
         ]);
 
+        this.buttonRotate = this.textInputOpacity = interpolate(this.buttonOpacity, {
+            inputRange:[0,1],
+            outputRange:[180,360],
+            extrapolate: Extrapolate.CLAMP
+        });
+
         this.buttonY = interpolate(this.buttonOpacity, {
             inputRange:[0,1],
             outputRange:[100,0],
@@ -99,19 +105,13 @@ class LoginScreen extends Component {
             outputRange:[1,0],
             extrapolate: Extrapolate.CLAMP
         });
-
-        this.rotation = this.textInputOpacity = interpolate(this.buttonOpacity, {
-            inputRange:[0,1],
-            outputRange:[180,360],
-            extrapolate: Extrapolate.CLAMP
-        });
     }
     render() {
         return (
             <View style={{flex: 1, backgroundColor: 'white', justifyContent: 'flex-end'}}>
                 <Animated.View style={{...StyleSheet.absoluteFill, transform: [{translateY: this.bgY}]}}>
                     <Image
-                        source={require('../../assets/crayon.jpeg')}
+                        source={require('../../assets/kids-drawing.jpeg')}
                         style={{flex: 1, height: null, width: null}}
                     />
                 </Animated.View>
@@ -119,7 +119,7 @@ class LoginScreen extends Component {
                     <TapGestureHandler onHandlerStateChange={this.onStateChange}>
                     <Animated.View style={{...styles.button, opacity: this.buttonOpacity,
                         transform:[{translateY: this.buttonY}]}}>
-                        <Text style={{fontSize: 20, fontWeight: 'bold'}}>SIGN IN</Text>
+                        <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>SIGN IN</Text>
                     </Animated.View>
                     </TapGestureHandler>
                     <Animated.View style={{...styles.button, backgroundColor: '#2E71DC', opacity: this.buttonOpacity,
@@ -134,7 +134,7 @@ class LoginScreen extends Component {
 
                         <TapGestureHandler onHandlerStateChange={this.onCloseState}>
                             <Animated.View style={styles.closeButton}>
-                                <Animated.Text style={{fontSize: 15, transform: [{rotate: concat(this.rotation, 'deg')}]}}>
+                                <Animated.Text style={{fontSize: 20, color: 'white', transform: [{rotate: concat(this.buttonRotate, 'deg')}]}}>
                                     X
                                 </Animated.Text>
                             </Animated.View>
@@ -149,7 +149,7 @@ class LoginScreen extends Component {
                                    placeholderTextColor='black'
                         />
                         <Animated.View style={styles.button}>
-                            <Text style={{fontSize: 20, fontWeight: 'bold'}}>
+                            <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
                                 SIGN IN
                             </Text>
                         </Animated.View>
@@ -169,7 +169,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     button: {
-        backgroundColor: 'white',
+        backgroundColor: '#ffdd59',
         shadowOffset: {width: 2, height: 2},
         shadowColor: 'black',
         shadowOpacity: 0.26,
@@ -180,19 +180,10 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         marginVertical: 5
     },
-    textInput: {
-        height: 50,
-        borderRadius: 25,
-        borderWidth: 0.5,
-        marginHorizontal: 20,
-        marginVertical: 5,
-        paddingLeft: 10,
-        borderColor: 'rgba(0,0,0,0.2)'
-    },
     closeButton: {
         height: 40,
         width: 40,
-        backgroundColor: 'white',
+        backgroundColor: '#ffdd59',
         borderRadius: 20,
         alignItems: 'center',
         justifyContent: 'center',
@@ -202,5 +193,14 @@ const styles = StyleSheet.create({
         shadowOffset: {width: 2, height: 2},
         shadowColor: 'black',
         shadowOpacity: 0.26,
+    },
+    textInput: {
+        height: 50,
+        borderRadius: 25,
+        borderWidth: 0.5,
+        marginHorizontal: 20,
+        marginVertical: 5,
+        paddingLeft: 10,
+        borderColor: 'rgba(0,0,0,0.2)'
     }
 });

@@ -18,7 +18,8 @@ const navigator = createStackNavigator(
   {
     initialRouteName: 'Home',
     defaultNavigationOptions: {
-      title: 'CareMap'
+      title: 'Care Map',
+        header: null
     }
   }
 );
