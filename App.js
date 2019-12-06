@@ -10,7 +10,7 @@ import {YellowBox} from 'react-native';
 const navigator = createStackNavigator(
   {
     Home: Home,
-    Components: ComponentsScreen,
+    Component: ComponentsScreen,
     Image: ImageScreen,
     Search: SearchScreen,
     Detail: DetailScreen

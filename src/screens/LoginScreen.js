@@ -50,8 +50,8 @@ function runTiming(clock, value, dest) {
 }
 
 class LoginScreen extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.buttonOpacity = new Value(1);
         this.onStateChange = event([
@@ -148,11 +148,13 @@ class LoginScreen extends Component {
                                    style={styles.textInput}
                                    placeholderTextColor='black'
                         />
+                        <TapGestureHandler onPress={() => props.navigation.navigate("Search")}>
                         <Animated.View style={styles.button}>
                             <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
                                 SIGN IN
                             </Text>
                         </Animated.View>
+                        </TapGestureHandler>
                     </Animated.View>
                 </View>
             </View>
