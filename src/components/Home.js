@@ -38,7 +38,7 @@ export default class App extends React.Component {
                 />
             );
         }
-        return <LoginScreen />;
+        return <LoginScreen navigation={this.props.navigation}/>;
     }
 }
 
