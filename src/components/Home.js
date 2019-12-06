@@ -16,8 +16,8 @@ function cacheImages(images) {
 }
 
 export default class App extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state={
             isReady:false
         }
