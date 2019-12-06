@@ -148,7 +148,7 @@ class LoginScreen extends Component {
                                    style={styles.textInput}
                                    placeholderTextColor='black'
                         />
-                        <TouchableOpacity onPress={console.log("Help")}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate("Search")}>
                         <Animated.View style={styles.button}>
                             <Text style={{fontSize: 20, fontWeight: 'bold', color: 'white'}}>
                                 SIGN IN
