@@ -35,7 +35,7 @@ const SearchScreen = ({ }) => {
             </ScrollView>
         </View>
     );
-}
+};
 
 SearchScreen.navigationOptions = ({navigation}) => {
     return {
@@ -60,14 +60,14 @@ const styles = StyleSheet.create({
 }); 
 
 // Jozzell Geo Location Function :: =>
-var options = {
+let options = {
     enableHighAccuracy: true,
     timeout: 5000,
     maximumAge: 0
     };
     
     function success(pos){
-      var crd = pos.coords;
+      let crd = pos.coords;
     
       console.log('Your current positon is:');
       console.log(`Latitude : ${crd.latitude}`);
