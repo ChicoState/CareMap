@@ -20,8 +20,8 @@ const DayCareCenters =
   '\n\nThere are more adults present in the building and there are a variety of activities and opportunities for children.'+
   '\n\nOften have the most regulations and inspections for health and safety standards. ';
 const Preschool = 
-  'Preschool programs are typically offered for children ages 3-5 years old and may be offered through a school, faith-based organizations, non-profit organizations, and child care centers.'+
-  '\n\nFamilies choosing this type of care may not need a full-time program but may be looking for a program that focuses on school readiness. '+
+  'Preschool programs are typically offered for children ages 3-5 years old and may be offered through a school, faith-based organizations, non-profit organizations, or child care centers.'+
+  '\n\nFamilies choosing this type of care may not need a full-time program but may be looking for a program that is focused on school readiness. '+
   '\n\nWhile some preschool programs may operate on a full-day, year round schedule, some may not.';
 const SchoolAgePrograms = 
   'School-age programs typically provide child care during the before- and after-school hours.'+
@@ -30,8 +30,7 @@ const SchoolAgePrograms =
 const Montessori = 
   'Montessori is a method of education that is based on self-directed activity, hands-on learning and collaborative play.'+
   '\n\nIn Montessori classrooms children make creative choices in their learning, while the classroom and the highly trained teacher offer age-appropriate activities to guide the process. '+
-  '\n\nThe majority of Montessori schools end at age 4 or 5 since the majority of Montessori schools are pre-schools. But most of the others stop at either 9 or 12. '+
-  '\n\nMontessori philosophy states that as children mature, so does their brain.';
+  '\n\nThe majority of Montessori schools end at age 4 or 5 since the majority of Montessori schools are pre-schools. But there are some that last until ages 9 to 12. '
 const CONTENT = [
   {
     title: 'Day Care',
@@ -117,13 +116,15 @@ export default class App extends Component {
           />
            <TouchableOpacity onPress={this.toggleExpanded}>
             <View style={styles.header}>
-              <Text style={styles.headerText}>Additional Resources</Text>
+              <Text style={styles.headerText}>Financial Assistance Programs</Text>
             </View>
           </TouchableOpacity>
           <Collapsible collapsed={this.state.collapsed} align="center">
             <View style={styles.content}>
-              <Text>
-                Financial, ect. 'under construction'
+              <Text style ={styles.subText}>
+                - Valley Oak Childrens Services {"\n"}{"\n"}
+                - CalWorks Child Care Program {"\n"}{"\n"}
+                - Head Start {"\n"}
               </Text>
             </View>
           </Collapsible>
@@ -168,6 +169,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 16,
     fontWeight: '900',
+    color: '#0000ff',
   },
   content: {
     padding: 20,
