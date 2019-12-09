@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     },
     container: {
         marginBottom: 101, 
-        backgroundColor: '#000000'
+        backgroundColor: '#ffdd59'
     }, 
 
     back:{
