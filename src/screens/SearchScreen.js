@@ -5,7 +5,8 @@ import useResults from '../hooks/useResults';
 import ResultsList from '../components/ResultsList';
 import {YellowBox} from 'react-native';
 import { Feather, FontAwesome } from '@expo/vector-icons';
-import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
+import { TouchableOpacity, ScrollView, SafeAreaView } from 'react-native-gesture-handler';
+import {color} from "react-native-reanimated";
 
 const SearchScreen = ({ }) => {
     // 'term' is the what we will search the Yelp API with
@@ -20,17 +21,18 @@ const SearchScreen = ({ }) => {
     YellowBox.ignoreWarnings(['Warning: ...']);
     console.disableYellowBox = true;
     return ( 
-        <View style = {styles.container}>   
-            <SearchBar 
+        <View style = {styles.container}>
+            <View style={styles.container}>
+            <SearchBar
             term ={term}
             onTermChange={(newTerm) => setTerm(newTerm)}
             onTermSubmit={() => searchAPI(term)}
             />
             {errorMessage ? <Text>{errorMessage}</Text> : null}
+            </View>
             <ScrollView>
-            <ResultsList 
+            <ResultsList
                 results ={filterResultsByterm()}
-                  
             /> 
             </ScrollView>
         </View>
@@ -39,23 +41,23 @@ const SearchScreen = ({ }) => {
 
 SearchScreen.navigationOptions = ({navigation}) => {
     return {
-        headerRight: <TouchableOpacity onPress={() => navigation.navigate('Components') }>
-            <FontAwesome name = "child" size={30}/>
+        headerRight: <TouchableOpacity onPress={() => navigation.navigate('Components')}>
+            <FontAwesome name = "child" size={37} style={{color: '#ffdd59', right: 1}}/>
             </TouchableOpacity>
     };
 };
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: '#000000'
+        backgroundColor: '#ffdd59',
+
     }, 
     bgImag: {
         flex: 1,
-        width: '100%',
-        height: '100%',
         justifyContent: "center",
         alignItems: "center",
         opacity: 0.8,
+        color: 'white'
       },
 }); 
 
