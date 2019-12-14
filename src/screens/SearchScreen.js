@@ -1,44 +1,63 @@
-import React, { useState } from 'react';
-import { Text,  StyleSheet, View, ImageBackground} from 'react-native';
-import SearchBar from '../components/SearchBar'
+import { Text,  StyleSheet, View} from 'react-native';
+import React from 'react';
+/* useResult custom hook 
+*   - function searchAPI to search yelp api
+*/
 import useResults from '../hooks/useResults';
 import ResultsList from '../components/ResultsList';
 import {YellowBox} from 'react-native';
-import { Feather, FontAwesome } from '@expo/vector-icons';
-import { TouchableOpacity, ScrollView, SafeAreaView } from 'react-native-gesture-handler';
-import {color} from "react-native-reanimated";
+import { FontAwesome } from '@expo/vector-icons';
+import { TouchableOpacity, ScrollView } from 'react-native-gesture-handler';
 
 const SearchScreen = ({ }) => {
-    // 'term' is the what we will search the Yelp API with
-    const [term, setTerm] = useState(''); 
-    const  [searchAPI, results, errorMessage] = useResults();
-
-    const filterResultsByterm = (term) => {
+    // uses function and JSON object from
+    const  [searchAPI, results] = useResults();
+    const Byterm = (term) => {
         return results.filter(result => {
             return result.categories.alias === term;
         });
     };
+    /* Hello Bug, source.uri is null?!? */
     YellowBox.ignoreWarnings(['Warning: ...']);
     console.disableYellowBox = true;
+    
     return ( 
         <View style = {styles.container}>
             <View style={styles.container}>
-            <SearchBar
-            term ={term}
-            onTermChange={(newTerm) => setTerm(newTerm)}
-            onTermSubmit={() => searchAPI(term)}
-            />
-            {errorMessage ? <Text>{errorMessage}</Text> : null}
+            
+                <View style = {{flexDirection: "row"}}>
+                <TouchableOpacity onPress={() => searchAPI('preschool')}>
+                    <View style={styles.button}> 
+                        <Text style={styles.buttonText}>Preschool</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => searchAPI('DayCare')}>
+                    <View style={styles.button}> 
+                        <Text style={styles.buttonText}>Day Care</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => searchAPI('Montessori')}>
+                    <View style={styles.button}> 
+                        <Text style={styles.buttonText}>Montessori</Text>
+                    </View>
+                </TouchableOpacity>
+                <TouchableOpacity onPress={() => searchAPI('kids activities')}>
+                    <View style={styles.button}> 
+                        <Text style={styles.buttonText}>After School Programs</Text>
+                    </View>
+                </TouchableOpacity>
+                </View>           
             </View>
             <ScrollView>
             <ResultsList
-                results ={filterResultsByterm()}
+                results ={Byterm()}
             /> 
             </ScrollView>
         </View>
     );
 };
 
+/* Navigtion Header to information on childcare options screen */
 SearchScreen.navigationOptions = ({navigation}) => {
     return {
         headerRight: <TouchableOpacity onPress={() => navigation.navigate('Components')}>
@@ -52,13 +71,19 @@ const styles = StyleSheet.create({
         backgroundColor: '#ffdd59',
 
     }, 
-    bgImag: {
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        opacity: 0.8,
-        color: 'white'
+      button: {
+        height: 50,
+        width: 103,
+        alignItems: 'center',
+        backgroundColor: '#2E71DC',
+        flexDirection: 'row',
+        justifyContent: 'space-between'
       },
+      buttonText: {
+        textAlign: 'center',
+        padding: 10,
+        color: 'white'
+      }
 }); 
 
 // Jozzell Geo Location Function :: =>
