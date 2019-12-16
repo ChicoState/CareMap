@@ -9,7 +9,7 @@ describe('Component Screen', () => {
       expect(component).toMatchSnapshot()
   });
   
-  test('Should toggle accordion list', () => {
+  test('Should handle onPress', () => {
     const onPress = jest.fn();
     const wrapper = shallow(<ComponentsScreen onPress={onPress}>test</ComponentsScreen>);
     wrapper
